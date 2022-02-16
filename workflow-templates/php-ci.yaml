@@ -2,11 +2,12 @@ name: "PHP Integration Checks"
 
 on:
   pull_request:
+    branches: ["main"]
   push:
-    branches:
-      - "main"
+    branches: ["main"]
 
 env:
+  MIN_PHP_VERSION: "7.4" # The minimal PHP version this lib supports
   COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
 
 jobs:
@@ -20,7 +21,7 @@ jobs:
         dependencies:
           - "locked"
         php-version:
-          - "7.4"
+          - ${{ env.MIN_PHP_VERSION }}
         operating-system:
           - "ubuntu-latest"
     steps:
@@ -59,7 +60,7 @@ jobs:
         dependencies:
           - "locked"
         php-version:
-          - "7.4"
+          - ${{ env.MIN_PHP_VERSION }}
         operating-system:
           - ubuntu-latest
     steps:
@@ -99,8 +100,9 @@ jobs:
           - "highest"
           - "locked"
         php-version:
-          - "7.4"
-          - "8.0"
+          - ${{ env.MIN_PHP_VERSION }}
+        # - "8.0" Uncomment to test in PHP 8.0
+        # - "8.1" Uncomment to test in PHP 8.1
         operating-system:
           - "ubuntu-latest"
     steps:
@@ -109,7 +111,7 @@ jobs:
       - name: "Install PHP"
         uses: "shivammathur/setup-php@v2"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           php-version: "${{ matrix.php-version }}"
           ini-values: memory_limit=-1
           tools: composer:v2

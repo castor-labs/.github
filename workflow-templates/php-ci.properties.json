@@ -1,7 +1,6 @@
 {
     "name": "PHP Library CI",
-    "description": "This workflow is designed to ",
-    "iconName": "example-icon",
+    "description": "Runs checks and tests on a PHP library, and creates a release if needed",
     "categories": [
         "PHP"
     ],
