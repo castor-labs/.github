@@ -1,0 +1,11 @@
+{
+    "name": "PHP Library CI",
+    "description": "This workflow is designed to ",
+    "iconName": "example-icon",
+    "categories": [
+        "PHP"
+    ],
+    "filePatterns": [
+        "composer.json$"
+    ]
+}
