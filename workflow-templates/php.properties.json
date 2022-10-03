@@ -1,0 +1,10 @@
+{
+    "name": "PHP Workflow",
+    "description": "Runs checks on a PHP codebase if any PHP files have changed",
+    "categories": [
+        "PHP"
+    ],
+    "filePatterns": [
+        "composer.json$"
+    ]
+}
